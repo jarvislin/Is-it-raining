@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
-                android:text="累積雨量"
+                android:text="@string/accumulated_precipitation"
                 android:textSize="15dp"/>
 
             <TextView

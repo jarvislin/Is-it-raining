@@ -21,7 +21,7 @@ public class Presenter {
 
     public Presenter(BaseView view) {
         this.view = view;
-        networkService = new NetworkService(getContext());
+        networkService = new NetworkService();
         repository = new BaseRepository(getContext());
         reference = new WeakReference<>(view);
     }

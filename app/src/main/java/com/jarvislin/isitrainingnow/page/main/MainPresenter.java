@@ -3,14 +3,13 @@ package com.jarvislin.isitrainingnow.page.main;
 import android.content.Context;
 
 import com.jarvislin.isitrainingnow.Presenter;
-import com.jarvislin.isitrainingnow.model.RainingData;
+import com.jarvislin.isitrainingnow.model.WeatherStation;
 
 import org.androidannotations.annotations.EBean;
 
 import java.util.ArrayList;
 
 import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
@@ -25,16 +24,18 @@ public class MainPresenter extends Presenter {
         this.view = (MainView) context;
     }
 
-    public void fetchRainingData() {
+    public void fetchWeatherStation() {
+        view.showLoading();
         networkService.getOpenDataApi().rainingData()
+                .doOnTerminate(view::hideLoading)
                 .subscribeOn(Schedulers.newThread())
-                .subscribe(this::filter, this::errorHandling);
+                .subscribe(this::filter, throwable -> errorHandling(throwable));
     }
 
-    private void filter(ArrayList<RainingData> rainingDataList) {
-        Observable.from(rainingDataList)
-                .filter(rainingData -> rainingData.isNewest() )
-                .toList().toBlocking()
-                .subscribe(view::updateRainingData);
+    private void filter(ArrayList<WeatherStation> weatherStationList) {
+        Observable.from(weatherStationList)
+                .filter(rainingData -> rainingData.isNewest() && rainingData.getRainfall10min() > 0 )
+                .toList().singleOrDefault(new ArrayList<>())
+                .subscribe(view::updateStation);
     }
 }
