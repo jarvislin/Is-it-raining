@@ -1,56 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:minWidth="180dp"
+    android:orientation="vertical"
     android:gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/stationName"
-        android:layout_width="match_parent"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#4cb685"
-        android:gravity="center"
-        android:padding="8dp"
-        android:textStyle="bold"
-        android:textSize="16dp"
-        android:textColor="#ffffff"
-        android:lines="1"
-        tools:text="阿里山國小"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:elevation="8dp"
+        android:background="@color/main_green"
         android:gravity="center_horizontal"
+        android:minWidth="180dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/rainingInfo"
-            android:layout_width="wrap_content"
+            android:id="@+id/stationName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/main_green"
+            android:gravity="center"
+            android:lines="1"
             android:padding="8dp"
-            android:lineSpacingExtra="4dp"
-            android:textSize="14dp"
-            tools:text="10分鐘累積雨量: 5\n1小時累積雨量: 6"/>
+            android:textColor="#ffffff"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            tools:text="阿里山國小" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:text="累積雨量"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:id="@+id/rainingInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:padding="8dp"
+                android:textSize="14dp"
+                tools:text="10分鐘: 5 mm\n1小時: 6 mm" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/main_green"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp"
+                android:padding="6dp"
+                android:drawableLeft="@mipmap/ic_info_outline"
+                android:drawablePadding="3dp"
+                android:text="點擊查看更多"
+                android:textColor="@android:color/white"
+                android:textSize="13dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/publishTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eaeaea"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:gravity="center"
+            android:padding="4dp"
+            android:textSize="12dp"
+            tools:text="更新時間: 2天前" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/publishTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#eaeaea"
-        android:gravity="center"
-        android:padding="4dp"
-        android:textSize="12dp"
-        tools:text="更新時間: 2天前"/>
 
     <View
         android:layout_width="3dp"
         android:layout_height="10dp"
-        android:background="#eaeaea"/>
-
+        android:background="@color/main_green" />
 </LinearLayout>
