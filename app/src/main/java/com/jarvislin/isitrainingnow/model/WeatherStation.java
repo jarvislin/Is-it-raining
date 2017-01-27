@@ -16,7 +16,7 @@ import lombok.Getter;
  */
 
 @Getter
-public class RainingData implements ClusterItem {
+public class WeatherStation implements ClusterItem {
 
     /**
      * SiteName : 阿里山
