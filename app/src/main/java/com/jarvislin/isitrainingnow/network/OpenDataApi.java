@@ -12,6 +12,6 @@ import rx.Observable;
  */
 
 public interface OpenDataApi {
-    @GET("?$select=SiteName,TWD67Lon,TWD67Lat,Rainfall10min,PublishTime&$orderby=PublishTime%20DESC&$skip=0&$top=1000&format=json&token=ijhBb85vJEKD0t+rPLJ0tw")
+    @GET("?$orderby=PublishTime%20desc&$skip=0&$top=1000&format=json&token=ijhBb85vJEKD0t+rPLJ0tw")
     Observable<ArrayList<WeatherStation>> rainingData();
 }
