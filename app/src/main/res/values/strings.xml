@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Is it raining now</string>
+    <string name="title_activity_main">各地降雨</string>
+</resources>
