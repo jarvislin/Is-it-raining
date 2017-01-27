@@ -1,7 +1,7 @@
 package com.jarvislin.isitrainingnow.page.main;
 
 import com.jarvislin.isitrainingnow.BaseView;
-import com.jarvislin.isitrainingnow.model.RainingData;
+import com.jarvislin.isitrainingnow.model.WeatherStation;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface MainView extends BaseView{
 
-    void updateRainingData(List<RainingData> filteredList);
+    void updateStation(List<WeatherStation> filteredList);
 }
