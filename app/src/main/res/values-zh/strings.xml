@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">下雨了嗎</string>
+    <string name="title_activity_main">各地降雨</string>
+    <string name="raining_info">10分鐘累積雨量: %1$s\n1小時累積雨量: %2$s</string>
+</resources>
