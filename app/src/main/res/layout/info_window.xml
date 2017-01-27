@@ -42,6 +42,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
                 android:text="@string/accumulated_precipitation"
                 android:textSize="15dp"/>
 

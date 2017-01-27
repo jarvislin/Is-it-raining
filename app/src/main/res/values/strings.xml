@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Is it raining now</string>
+    <string name="accumulated_precipitation">Accumulated Precipitation</string>
+    <string name="raining_info">10分鐘累積雨量: %1$s\\n1小時累積雨量: %2$s</string>
+    <string name="title_activity_main">各地降雨</string>
 </resources>
