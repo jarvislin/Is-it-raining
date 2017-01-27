@@ -1,5 +1,6 @@
 package com.jarvislin.isitrainingnow;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,13 +15,13 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 public abstract class BaseActivity<T extends Presenter> extends RxAppCompatActivity implements BaseView {
     protected T presenter;
-//    protected GifLoadingDialog loadingDialog;
+    protected ProgressDialog loadingDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter = createPresenter();
-//        loadingDialog = new GifLoadingDialog(this);
+
         // hide keyboard
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
@@ -62,12 +63,16 @@ public abstract class BaseActivity<T extends Presenter> extends RxAppCompatActiv
 
     @Override
     public void showLoading() {
-//        runOnUiThread(() -> loadingDialog.show());
+        runOnUiThread(() -> loadingDialog = ProgressDialog.show(this, "讀取中", "請稍候...", true));
     }
 
     @Override
     public void hideLoading() {
-//        runOnUiThread(() -> loadingDialog.dismiss());
+        runOnUiThread(() -> {
+            if (loadingDialog.isShowing()) {
+                loadingDialog.dismiss();
+            }
+        });
     }
 
 }
