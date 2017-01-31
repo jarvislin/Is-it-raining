@@ -84,6 +84,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
     private void initMap() {
         map.getUiSettings().setZoomControlsEnabled(true);
         map.getUiSettings().setMapToolbarEnabled(false);
+        map.getUiSettings().setRotateGesturesEnabled(false);
         CameraPosition position = new CameraPosition(TAIWAN, 7, 0, 0);
         map.moveCamera(CameraUpdateFactory.newCameraPosition(position));
     }
