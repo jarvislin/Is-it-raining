@@ -5,10 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.util.TypedValue;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
@@ -21,9 +17,6 @@ public abstract class BaseActivity<T extends Presenter> extends RxAppCompatActiv
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter = createPresenter();
-
-        // hide keyboard
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     @Override
@@ -56,14 +49,12 @@ public abstract class BaseActivity<T extends Presenter> extends RxAppCompatActiv
 
     @Override
     public void showToast(String title) {
-        runOnUiThread(() -> {
-            Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
-        });
+        runOnUiThread(() -> Toast.makeText(this, title, Toast.LENGTH_SHORT).show());
     }
 
     @Override
     public void showLoading() {
-        runOnUiThread(() -> loadingDialog = ProgressDialog.show(this, "讀取中", "請稍候...", true));
+        runOnUiThread(() -> loadingDialog = ProgressDialog.show(this, getString(R.string.loading), getString(R.string.please_wait), true));
     }
 
     @Override

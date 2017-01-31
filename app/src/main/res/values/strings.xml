@@ -1,6 +1,31 @@
 <resources>
-    <string name="app_name">Is it raining now</string>
-    <string name="accumulated_precipitation">Accumulated Precipitation</string>
-    <string name="raining_info">10分鐘累積雨量: %1$s\\n1小時累積雨量: %2$s</string>
-    <string name="title_activity_main">各地降雨</string>
+    <string name="app_name">Is it raining?</string>
+    <string name="accumulated_precipitation">Accumulated\nPrecipitation (Unit: mm)</string>
+    <string name="raining_info">10 minutes: %1$s\n1 hour: %2$s</string>
+    <string name="display">Display</string>
+    <string name="places_which_are_raining">Places which have rained</string>
+    <string name="all_of_weather_stations">All of weather stations</string>
+    <string name="data_updated_in">Data Published in</string>
+    <string name="minutes">minutes</string>
+    <string name="there_are_n_weather_stations">There are %s weather stations.</string>
+    <string name="id">Station ID: %s</string>
+    <string name="name">Station Name: %s</string>
+    <string name="published_at">Published at: %s</string>
+    <string name="rain_10mins">10 minutes: %.2f</string>
+    <string name="rain_1hr">1 hour: %.2f</string>
+    <string name="rain_3hr">3 hours: %.2f</string>
+    <string name="rain_6hr">6 hours: %.2f</string>
+    <string name="rain_12hr">12 hours: %.2f</string>
+    <string name="rain_24hr">24 hours: %.2f</string>
+    <string name="rain_today">Today: %.2f</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="loading">Loading</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="read_more">Read more</string>
+    <plurals name="place_are_raining">
+        <item quantity="one">%s place had rained.</item>
+        <item quantity="other">%s places had rained.</item>
+    </plurals>
 </resources>

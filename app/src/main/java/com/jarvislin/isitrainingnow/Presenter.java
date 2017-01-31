@@ -8,6 +8,7 @@ import com.jarvislin.isitrainingnow.repository.BaseRepository;
 import java.io.IOException;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
+import java.net.SocketTimeoutException;
 
 import retrofit2.adapter.rxjava.HttpException;
 import timber.log.Timber;
@@ -34,7 +35,11 @@ public class Presenter {
 
         try {
             if (throwable instanceof IOException) {
-                view.showToast("連線發生錯誤，請檢查網路狀況");
+                if (throwable instanceof SocketTimeoutException) {
+                    view.showToast("連線逾時，請稍候再重試");
+                } else {
+                    view.showToast("連線發生錯誤，請檢查網路狀況");
+                }
             } else if (throwable instanceof HttpException) {
                 HttpException httpException = (HttpException) throwable;
                 int code = httpException.code();

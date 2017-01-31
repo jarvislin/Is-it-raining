@@ -24,18 +24,31 @@ public class MainPresenter extends Presenter {
         this.view = (MainView) context;
     }
 
-    public void fetchWeatherStation() {
+    public void fetchWeatherStation(int mins, boolean showAll) {
         view.showLoading();
-        networkService.getOpenDataApi().rainingData()
+        networkService.getOpenDataApi().weatherStation()
                 .doOnTerminate(view::hideLoading)
                 .subscribeOn(Schedulers.newThread())
-                .subscribe(this::filter, throwable -> errorHandling(throwable));
+                .subscribe(weatherStations -> filter(weatherStations, mins, showAll), throwable -> errorHandling(throwable));
     }
 
-    private void filter(ArrayList<WeatherStation> weatherStationList) {
+    private void filter(ArrayList<WeatherStation> weatherStationList, int mins, boolean showAll) {
         Observable.from(weatherStationList)
-                .filter(rainingData -> rainingData.isNewest() && rainingData.getRainfall10min() > 0 )
+                .filter(rainingData -> {
+                    if (showAll) {
+                        return rainingData.isValidUpdateTime(mins);
+                    } else {
+                        return rainingData.isValidUpdateTime(mins) && rainingData.getRainfall10min() > 0;
+                    }
+                })
                 .toList().singleOrDefault(new ArrayList<>())
-                .subscribe(view::updateStation);
+                .subscribe(result -> {
+                    view.updateStation(result);
+                    if (showAll) {
+                        view.showStationAmount(result.size());
+                    } else {
+                        view.showRainingAmount(result.size());
+                    }
+                });
     }
 }

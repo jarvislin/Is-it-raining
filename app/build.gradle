@@ -38,9 +38,9 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.jarvislin.isitrainingnow"
-        minSdkVersion 19
+        minSdkVersion 25
         targetSdkVersion 25
-        versionCode 1
+        versionCode getTimestamp() as Integer ?: 0
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -89,4 +89,12 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+    //Chinese to Pinyin
+    compile 'com.github.promeg:tinypinyin:2.0.1'
+}
+
+def getTimestamp() {
+    def date = new Date()
+    return Integer.parseInt(date.format('yyMMdd'))
 }

@@ -32,8 +32,8 @@ public class NetworkService {
                 .addConverterFactory(new ToStringConverterFactory())
                 .baseUrl(RAINING_OPEN_DATA_API_URL)
                 .client(new OkHttpClient.Builder()
-                        .readTimeout(15, TimeUnit.SECONDS)
-                        .connectTimeout(15, TimeUnit.SECONDS)
+                        .readTimeout(30, TimeUnit.SECONDS)
+                        .connectTimeout(30, TimeUnit.SECONDS)
                         .addInterceptor(new HttpLoggingInterceptor().setLevel(BuildConfig.DEBUG
                                 ? HttpLoggingInterceptor.Level.BODY
                                 : HttpLoggingInterceptor.Level.NONE))

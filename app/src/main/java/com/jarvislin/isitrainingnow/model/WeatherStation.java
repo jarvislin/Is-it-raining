@@ -1,10 +1,11 @@
 package com.jarvislin.isitrainingnow.model;
 
+import android.support.annotation.Nullable;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.annotations.SerializedName;
 import com.google.maps.android.clustering.ClusterItem;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,16 +19,16 @@ import lombok.Getter;
 @Getter
 public class WeatherStation implements ClusterItem {
 
-    /**
-     * SiteName : 阿里山
-     * TWD67Lon : 120.6936
-     * TWD67Lat : 23.4708
-     * Rainfall10min : 0
-     * PublishTime : 2017-01-27 14:50:00
-     */
-
+    @SerializedName("SiteId")
+    private String id;
     @SerializedName("SiteName")
     private String name;
+    @SerializedName("County")
+    private String county;
+    @SerializedName("Township")
+    private String township;
+    @SerializedName("Unit")
+    private String unit;
     @SerializedName("TWD67Lon")
     private double lng;
     @SerializedName("TWD67Lat")
@@ -36,20 +37,49 @@ public class WeatherStation implements ClusterItem {
     private float rainfall10min;
     @SerializedName("Rainfall1hr")
     private float rainfall1hr;
+    @SerializedName("Rainfall3hr")
+    private float rainfall3hr;
+    @SerializedName("Rainfall6hr")
+    private float rainfall6hr;
+    @SerializedName("Rainfall12hr")
+    private float rainfall12hr;
+    @SerializedName("Rainfall24hr")
+    private float rainfall24hr;
+    @SerializedName("Now")
+    private float rainfallToday;
     @SerializedName("PublishTime")
     private String publishTime;
 
-    public boolean isNewest() {
+    public boolean isValidUpdateTime(int n) {
+        Date date = getDate();
+        if (date != null) {
+            long time = System.currentTimeMillis();
+            return time - date.getTime() <= n * 60 * 1000; // in n mins
+        } else {
+            return true; // return true if parse failed
+        }
+    }
 
-        long time = System.currentTimeMillis();
+    @Nullable
+    private Date getDate() {
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat();
             dateFormat.applyPattern("yyyy-MM-dd HH:mm:ss");
-            Date date = dateFormat.parse(publishTime);
-            return time - date.getTime() <= 60 * 60 * 1000; // 30 mins
+            return dateFormat.parse(publishTime);
         } catch (ParseException e) {
             e.printStackTrace();
-            return false;
+            return null;
+        }
+    }
+
+    public String getDateText() {
+        Date date = getDate();
+        if (date == null) {
+            return publishTime;
+        } else {
+            SimpleDateFormat dateFormat = new SimpleDateFormat();
+            dateFormat.applyPattern("yyyy.MM.dd HH:mm");
+            return dateFormat.format(date);
         }
     }
 

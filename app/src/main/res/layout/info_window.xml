@@ -44,6 +44,7 @@
                 android:paddingTop="8dp"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
+                android:gravity="center_horizontal"
                 android:text="@string/accumulated_precipitation"
                 android:textSize="15dp"/>
 
@@ -65,7 +66,7 @@
                 android:padding="6dp"
                 android:drawableLeft="@mipmap/ic_info_outline"
                 android:drawablePadding="3dp"
-                android:text="點擊查看更多"
+                android:text="@string/read_more"
                 android:textColor="@android:color/white"
                 android:textSize="13dp"/>
 
@@ -85,8 +86,8 @@
             tools:text="更新時間: 2天前" />
     </LinearLayout>
 
-    <View
-        android:layout_width="3dp"
-        android:layout_height="10dp"
-        android:background="@color/main_green" />
+    <com.jarvislin.isitrainingnow.ui.Triangle
+        android:layout_width="10dp"
+        android:layout_height="10dp"/>
+
 </LinearLayout>

@@ -16,7 +16,7 @@
         android:name=".Application"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.Custom">
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -32,7 +32,7 @@
 
         <activity
             android:name=".page.main.MainActivity_"
-            android:label="@string/title_activity_main">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

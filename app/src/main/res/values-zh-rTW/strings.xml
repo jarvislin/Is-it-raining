@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">下雨了嗎</string>
-    <string name="title_activity_main">各地降雨</string>
-    <string name="raining_info">10分鐘累積雨量: %1$s\n1小時累積雨量: %2$s</string>
-    <string name="accumulated_precipitation">累積雨量</string>
+    <string name="app_name">有下雨嗎</string>
+    <string name="raining_info">10 分鐘：%1$s\n1 小時：%2$s</string>
+    <string name="accumulated_precipitation">累積雨量(單位：mm)</string>
+    <plurals name="place_are_raining">
+        <item quantity="one">監測到 %s 處降雨</item>
+        <item quantity="other">監測到 %s 處降雨</item>
+    </plurals>
+    <string name="all_of_weather_stations">所有監測站</string>
+    <string name="data_updated_in">資料更新時間</string>
+    <string name="display">顯示</string>
+    <string name="minutes">分鐘內</string>
+    <string name="places_which_are_raining">有降雨處</string>
+    <string name="there_are_n_weather_stations">共有 %s 處監測站</string>
+    <string name="id">測站 ID：%s</string>
+    <string name="name">測站名稱：%s</string>
+    <string name="rain_10mins">10 分鐘： %.2f</string>
+    <string name="rain_12hr">12 小時： %.2f</string>
+    <string name="rain_1hr">1 小時： %.2f</string>
+    <string name="rain_24hr">24 小時： %.2f</string>
+    <string name="rain_3hr">3 小時： %.2f</string>
+    <string name="rain_6hr">6 小時： %.2f</string>
+    <string name="rain_today">本日： %.2f</string>
+    <string name="published_at">更新於：%s</string>
+    <string name="dismiss">關閉</string>
+    <string name="submit">送出</string>
+    <string name="cancel">取消</string>
+    <string name="loading">讀取中</string>
+    <string name="please_wait">請稍候...</string>
+    <string name="read_more">查看更多</string>
 </resources>
