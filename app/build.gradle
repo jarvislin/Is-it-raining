@@ -7,6 +7,7 @@ def AAVersion = '4.2.0'
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         // replace with the current version of the Android plugin
