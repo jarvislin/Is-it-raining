@@ -8,7 +8,7 @@ public interface BaseView {
 
     void showToast(@StringRes int stringRes);
 
-    void showToast(String title);
+    void showToast(String message);
 
     void showLoading();
 

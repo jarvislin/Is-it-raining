@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.widget.Toast;
 
+import com.jarvislin.isitrainingnow.network.NetworkService;
+import com.jarvislin.isitrainingnow.repository.BaseRepository;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 public abstract class BaseActivity<T extends Presenter> extends RxAppCompatActivity implements BaseView {
@@ -48,8 +50,8 @@ public abstract class BaseActivity<T extends Presenter> extends RxAppCompatActiv
     }
 
     @Override
-    public void showToast(String title) {
-        runOnUiThread(() -> Toast.makeText(this, title, Toast.LENGTH_SHORT).show());
+    public void showToast(String message) {
+        runOnUiThread(() -> Toast.makeText(this, message, Toast.LENGTH_SHORT).show());
     }
 
     @Override
