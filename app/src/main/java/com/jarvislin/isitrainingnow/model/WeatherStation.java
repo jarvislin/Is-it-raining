@@ -9,14 +9,19 @@ import com.google.maps.android.clustering.ClusterItem;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
+import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by JarvisLin on 2017/1/27.
  */
 
 @Getter
+@Setter
+@Builder
 public class WeatherStation implements ClusterItem {
 
     @SerializedName("SiteId")
@@ -61,13 +66,11 @@ public class WeatherStation implements ClusterItem {
     }
 
     @Nullable
-    private Date getDate() {
+    public Date getDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat();
-            dateFormat.applyPattern("yyyy-MM-dd HH:mm:ss");
             return dateFormat.parse(publishTime);
         } catch (ParseException e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -77,8 +80,7 @@ public class WeatherStation implements ClusterItem {
         if (date == null) {
             return publishTime;
         } else {
-            SimpleDateFormat dateFormat = new SimpleDateFormat();
-            dateFormat.applyPattern("yyyy.MM.dd HH:mm");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.getDefault());
             return dateFormat.format(date);
         }
     }

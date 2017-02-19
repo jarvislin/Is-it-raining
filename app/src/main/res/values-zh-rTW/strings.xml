@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">有下雨嗎</string>
+    <string name="app_name">有下雨嗎?</string>
     <string name="raining_info">10 分鐘：%1$s\n1 小時：%2$s</string>
     <string name="accumulated_precipitation">累積雨量(單位：mm)</string>
     <plurals name="place_are_raining">
@@ -29,4 +29,8 @@
     <string name="loading">讀取中</string>
     <string name="please_wait">請稍候...</string>
     <string name="read_more">查看更多</string>
+    <string name="timeout_hint">連線逾時，請稍候再重試</string>
+    <string name="unknown_problem_hint">發生未知錯誤，請稍候再重試</string>
+    <string name="network_hint">連線發生錯誤，請檢查網路狀況</string>
+    <string name="opendata_api_broken_hint">開放資料發生異常</string>
 </resources>

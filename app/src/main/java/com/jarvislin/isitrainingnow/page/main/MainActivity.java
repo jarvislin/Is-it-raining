@@ -24,6 +24,7 @@ import com.google.maps.android.clustering.view.DefaultClusterRenderer;
 import com.jarvislin.isitrainingnow.BaseActivity;
 import com.jarvislin.isitrainingnow.R;
 import com.jarvislin.isitrainingnow.model.WeatherStation;
+import com.jarvislin.isitrainingnow.network.NetworkService;
 import com.jarvislin.isitrainingnow.ui.dialog.DetailDialog;
 import com.jarvislin.isitrainingnow.ui.dialog.SettingsDialog;
 
@@ -48,7 +49,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
 
     @Override
     protected MainPresenter createPresenter() {
-        return MainPresenter_.getInstance_(this);
+        return new MainPresenter(this, new NetworkService());
     }
 
     @AfterViews
@@ -63,12 +64,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
         toolbar.setNavigationIcon(R.mipmap.ic_action_arrow_back);
         toolbar.setNavigationOnClickListener(v -> finish());
 
-        //sync map
+        // sync map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        //others
+        // others
         settingsDialog = new SettingsDialog(this);
     }
 
@@ -84,6 +85,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
     private void initMap() {
         map.getUiSettings().setZoomControlsEnabled(true);
         map.getUiSettings().setMapToolbarEnabled(false);
+        map.getUiSettings().setRotateGesturesEnabled(false);
         CameraPosition position = new CameraPosition(TAIWAN, 7, 0, 0);
         map.moveCamera(CameraUpdateFactory.newCameraPosition(position));
     }
