@@ -7,7 +7,7 @@ import android.content.Context;
  */
 
 public class BaseRepository {
-    public BaseRepository(Context context) {
+    public BaseRepository() {
 
     }
 }

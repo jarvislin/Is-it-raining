@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +19,9 @@ import lombok.Setter;
  * Created by JarvisLin on 2017/1/27.
  */
 
-@Getter @Setter
+@Getter
+@Setter
+@Builder
 public class WeatherStation implements ClusterItem {
 
     @SerializedName("SiteId")
@@ -77,8 +80,7 @@ public class WeatherStation implements ClusterItem {
         if (date == null) {
             return publishTime;
         } else {
-            SimpleDateFormat dateFormat = new SimpleDateFormat();
-            dateFormat.applyPattern("yyyy.MM.dd HH:mm");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.getDefault());
             return dateFormat.format(date);
         }
     }
