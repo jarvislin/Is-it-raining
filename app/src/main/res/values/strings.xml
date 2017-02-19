@@ -24,6 +24,10 @@
     <string name="loading">Loading</string>
     <string name="please_wait">Please wait...</string>
     <string name="read_more">Read more</string>
+    <string name="timeout_hint">Connection timed out, try again later please.</string>
+    <string name="network_hint">Connection failed, check your network please.</string>
+    <string name="opendata_api_broken_hint">The source of open data is broken.</string>
+    <string name="unknown_problem_hint">Unknown error occurred, try again later please.</string>
     <plurals name="place_are_raining">
         <item quantity="one">%s place had rained.</item>
         <item quantity="other">%s places had rained.</item>
