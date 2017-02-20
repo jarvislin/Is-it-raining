@@ -3,6 +3,16 @@ It's an Android application that uses Open Data of Accumulated Precipitation in 
 
 I made it because I don't want to look out of window to check is raining or not.
 
+## App Feature
+* Open data
+* Map
+
+## Code Feature
+* AndroidAnnotations
+* MVP
+* RxJava
+* Unit testing
+
 # 有下雨嗎？
 這是一個串接 [十分鐘雨量資料 Open Data](http://data.gov.tw/node/7879) 的安卓應用程式。
 
