@@ -2,6 +2,7 @@ package com.jarvislin.isitrainingnow.model;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
@@ -14,13 +15,18 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
 /**
  * Created by JarvisLin on 2017/2/18.
  */
 public class WeatherStationTest {
-    @Mock
     private WeatherStation weatherStation;
+
+    @Before
+    public void setup() {
+        weatherStation = WeatherStation.builder().build();
+    }
 
     @Test
     public void whenPublishTimeIsWrongFormat() {
