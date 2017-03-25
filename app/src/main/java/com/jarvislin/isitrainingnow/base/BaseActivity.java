@@ -1,4 +1,4 @@
-package com.jarvislin.isitrainingnow;
+package com.jarvislin.isitrainingnow.base;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -7,8 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.widget.Toast;
 
-import com.jarvislin.isitrainingnow.network.NetworkService;
-import com.jarvislin.isitrainingnow.repository.BaseRepository;
+import com.jarvislin.isitrainingnow.R;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 public abstract class BaseActivity<T extends Presenter> extends RxAppCompatActivity implements BaseView {

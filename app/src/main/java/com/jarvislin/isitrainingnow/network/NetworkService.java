@@ -46,8 +46,7 @@ public class NetworkService {
         openDataApi = retrofit.create(OpenDataApi.class);
     }
 
-
-    public Observable<ArrayList<WeatherStation>> fetchWeatherStation() {
-        return openDataApi.weatherStation();
+    public OpenDataApi getOpenDataApi() {
+        return openDataApi;
     }
 }

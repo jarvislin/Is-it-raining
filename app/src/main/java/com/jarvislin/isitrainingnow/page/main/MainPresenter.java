@@ -1,17 +1,11 @@
 package com.jarvislin.isitrainingnow.page.main;
 
-import android.content.Context;
-
-import com.jarvislin.isitrainingnow.Presenter;
+import com.jarvislin.isitrainingnow.base.Presenter;
 import com.jarvislin.isitrainingnow.model.WeatherStation;
-import com.jarvislin.isitrainingnow.network.NetworkService;
-
-import org.androidannotations.annotations.EBean;
 
 import java.util.ArrayList;
 
 import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
@@ -20,22 +14,24 @@ import rx.schedulers.Schedulers;
 
 public class MainPresenter extends Presenter {
     private final MainView view;
+    private final MainRepository repository;
 
-    public MainPresenter(MainView view, NetworkService service) {
+    public MainPresenter(MainView view, MainRepository repository) {
         super(view);
         this.view = view;
-        networkService = service;
+        this.repository = repository;
     }
 
-    public void fetchWeatherStation(int mins, boolean showAll) {
+    public void fetchWeatherStation(int mins) {
         view.showLoading();
-        networkService.fetchWeatherStation()
+        repository.fetchWeatherStation()
                 .doOnTerminate(view::hideLoading)
                 .subscribeOn(Schedulers.newThread())
-                .subscribe(weatherStations -> filter(weatherStations, mins, showAll), throwable -> errorHandling(throwable));
+                .subscribe(weatherStations -> filter(weatherStations, mins), throwable -> errorHandling(throwable));
     }
 
-    private void filter(ArrayList<WeatherStation> weatherStationList, int mins, boolean showAll) {
+    private void filter(ArrayList<WeatherStation> weatherStationList, int mins) {
+        boolean showAll = view.isShowAll();
         Observable.from(weatherStationList)
                 .filter(rainingData -> {
                     if (showAll) {

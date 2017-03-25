@@ -2,7 +2,6 @@ package com.jarvislin.isitrainingnow.page.main;
 
 import android.content.Context;
 import android.graphics.Point;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +12,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -21,7 +19,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.ClusterManager;
 import com.google.maps.android.clustering.view.DefaultClusterRenderer;
-import com.jarvislin.isitrainingnow.BaseActivity;
+import com.jarvislin.isitrainingnow.base.BaseActivity;
 import com.jarvislin.isitrainingnow.R;
 import com.jarvislin.isitrainingnow.model.WeatherStation;
 import com.jarvislin.isitrainingnow.network.NetworkService;
@@ -49,7 +47,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
 
     @Override
     protected MainPresenter createPresenter() {
-        return new MainPresenter(this, new NetworkService());
+        return new MainPresenter(this, new MainRepository(new NetworkService()));
     }
 
     @AfterViews
@@ -142,9 +140,14 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
         showToast(String.format(getResources().getQuantityString(R.plurals.place_are_raining, size), size));
     }
 
+    @Override
+    public boolean isShowAll() {
+        return settingsDialog.isShowAll();
+    }
+
     @Click(R.id.refresh)
     protected void refresh() {
-        presenter.fetchWeatherStation(settingsDialog.getTimeParam(), settingsDialog.isShowAll());
+        presenter.fetchWeatherStation(settingsDialog.getTimeParam());
     }
 
     @Click(R.id.settings)

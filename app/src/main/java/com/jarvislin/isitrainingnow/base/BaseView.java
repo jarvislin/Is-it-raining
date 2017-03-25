@@ -1,4 +1,4 @@
-package com.jarvislin.isitrainingnow;
+package com.jarvislin.isitrainingnow.base;
 
 import android.content.Context;
 import android.support.annotation.StringRes;

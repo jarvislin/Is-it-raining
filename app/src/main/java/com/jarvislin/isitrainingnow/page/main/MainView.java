@@ -1,6 +1,6 @@
 package com.jarvislin.isitrainingnow.page.main;
 
-import com.jarvislin.isitrainingnow.BaseView;
+import com.jarvislin.isitrainingnow.base.BaseView;
 import com.jarvislin.isitrainingnow.model.WeatherStation;
 
 import java.util.List;
@@ -15,4 +15,6 @@ interface MainView extends BaseView {
     void showStationAmount(int size);
 
     void showRainingAmount(int size);
+
+    boolean isShowAll();
 }

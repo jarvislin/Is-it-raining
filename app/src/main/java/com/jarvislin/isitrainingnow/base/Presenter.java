@@ -1,7 +1,10 @@
-package com.jarvislin.isitrainingnow;
+package com.jarvislin.isitrainingnow.base;
 
 import android.content.Context;
 
+import com.jarvislin.isitrainingnow.BuildConfig;
+import com.jarvislin.isitrainingnow.R;
+import com.jarvislin.isitrainingnow.base.BaseView;
 import com.jarvislin.isitrainingnow.network.NetworkService;
 
 import java.io.IOException;
@@ -16,7 +19,6 @@ public class Presenter {
 
     private final BaseView view;
     private Reference<BaseView> reference;
-    protected NetworkService networkService;
 
     public Presenter(BaseView view) {
         this.view = view;
