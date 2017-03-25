@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jarvislin/Is-it-raining.svg?branch=master)](https://travis-ci.org/jarvislin/Is-it-raining)
+
 # Is it raining? 
 It's an Android application that uses Open Data of Accumulated Precipitation in Taiwan.
 
