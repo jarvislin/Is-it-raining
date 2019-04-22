@@ -23,7 +23,7 @@ APP=Is-it-raining
 # This is to get the Build Details so we could pass it as part of the Email Body
 build_url=https://appcenter.ms/orgs/$ORG/apps/$APP/build/branches/$APPCENTER_BRANCH/builds/$APPCENTER_BUILD_ID
 # Address to send email
-TO_ADDRESS="admin@jarvislin.com"
+TO_ADDRESS="jarvislin0202@gmail.com"
 # A sample Subject Title 
 SUBJECT="AppCenter Build"
 # Content of the Email on Build-Success.
