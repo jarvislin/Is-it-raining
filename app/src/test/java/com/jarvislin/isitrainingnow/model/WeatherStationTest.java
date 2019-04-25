@@ -66,4 +66,8 @@ public class WeatherStationTest {
         assertFalse(weatherStation.isValidUpdateTime(5));
     }
 
+    @Test
+    public void fail() {
+        assertEquals(0, 1);
+    }
 }
